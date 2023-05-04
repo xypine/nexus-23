@@ -6,17 +6,18 @@
 
 	import { scale } from "svelte/transition";
 	import Question from "./question.svelte";
-	import { browser } from "$app/environment";
 	let answers: number[] = [];
 	$: step = answers.length;
 
 	import { tweened } from "svelte/motion";
 	import { cubicOut } from "svelte/easing";
+	import { goto } from "$app/navigation";
+	import { onMount } from "svelte";
 	const progress = tweened(0, {
 		duration: 400,
 		easing: cubicOut
 	});
-	$: progress.set(step / questions.length);
+	$: progress.set(step + 1 / questions.length);
 
 	type Question = {
 		question: string;
@@ -30,6 +31,15 @@
 	$: question_correct_options = question?.correct;
 
 	let message_container: HTMLElement;
+
+	onMount(() => {
+		window.skipall = () => {
+			for (let i = 0; i < questions.length - 1; i++) {
+				answers.push(0);
+			}
+			answers = answers;
+		};
+	});
 </script>
 
 <div class="all-container flex flex-col gap-4 mt-4 mb-2 flex-1">
@@ -54,39 +64,42 @@
 				{/each}
 			</div>
 		</div>
-
-		<!-- <div id="answer-input" class="w-full flex gap-2">
-			<input class="input" type="text" placeholder="type your answer to add context" disabled />
-			<button
-				class="btn variant-ghost-primary"
-				on:click={() => {
-					step += 1;
-				}}>advance</button
-			>
-		</div> -->
 	</div>
 	<div id="answer-options" class="w-full grid grid-cols-1 grid-rows-1 gap-2 card p-2">
 		{#key question_options}
 			{#each question_options || [] as option, i}
 				{@const is_valid = question_correct_options?.includes(i)}
-				<button
-					class="btn variant-ghost-primary"
-					disabled={!is_valid}
-					on:click={() => {
-						if (is_valid) {
-							answers = [...answers, i];
+				{#if step === questions.length - 1}
+					<button
+						class="btn variant-filled-primary"
+						on:click={() => {
+							// show next screen
+							goto("/views/result");
+						}}>{option}</button
+					>
+				{:else}
+					<button
+						class="btn variant-ghost-primary"
+						disabled={!is_valid}
+						on:click={() => {
+							if (is_valid) {
+								answers = [...answers, i];
 
-							// scroll to bottom
-							message_container.scroll({ top: message_container.scrollHeight, behavior: "smooth" });
-						}
-					}}
-					in:scale={{
-						delay: message_animation_delay + message_animation_length + i * 200,
-						duration: 100
-					}}
-				>
-					{option}
-				</button>
+								// scroll to bottom
+								message_container.scroll({
+									top: message_container.scrollHeight,
+									behavior: "smooth"
+								});
+							}
+						}}
+						in:scale={{
+							delay: message_animation_delay + message_animation_length + i * 200,
+							duration: 100
+						}}
+					>
+						{option}
+					</button>
+				{/if}
 			{/each}
 		{/key}
 	</div>
