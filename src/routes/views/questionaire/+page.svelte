@@ -22,46 +22,36 @@
 		question: string;
 		options: string[];
 		correct: number[];
+		actor_pic: string | undefined;
 	};
 	let question: Question | null;
-	$: if (browser) question = questions[step];
+	$: question = questions[step];
 	$: question_options = question?.options;
 	$: question_correct_options = question?.correct;
-	let sorted_options: any[] = [];
-	$: if (question_options != null) {
-		sorted_options = [...question_options].map((option, i) => [option, i]);
-		//sorted_options.sort(() => Math.random() - 0.5);
-		//sorted_options = sorted_options;
-	} else {
-		sorted_options = [];
-	}
+
+	let message_container: HTMLElement;
 </script>
 
 <div class="all-container flex flex-col gap-4 mt-4 mb-2 flex-1">
 	<div class="flex flex-col header">
-		<h1>Questionnaire</h1>
-		<p class="text-xs mt-px card p-4 variant-ghost">
-			This is a demo, so to keep things simple, the answers are prefilled.
-		</p>
-		<progress value={$progress} />
+		<h2>Questionnaire</h2>
 	</div>
-	<div class="messages-container flex-1 flex gap-2 flex-col">
+	<div class="messages-container flex-1 flex gap-2 flex-col" bind:this={message_container}>
 		<div class="messages-parent flex-1">
-			<div class="flex-1 flex flex-col-reverse">
-				{#if browser}
-					{#each questions_reversed as question, i}
-						{@const corrected_i = questions.length - i - 1}
-						{#if step >= corrected_i}
-							<Question
-								index={corrected_i}
-								{...question}
-								{message_animation_delay}
-								{message_animation_length}
-								bind:step
-							/>
-						{/if}
-					{/each}
-				{/if}
+			<div class="flex-1 flex flex-col-reverse gap-3">
+				{#each questions_reversed as question, i}
+					{@const corrected_i = questions.length - i - 1}
+					{#if step >= corrected_i}
+						<Question
+							index={corrected_i}
+							{...question}
+							{message_animation_delay}
+							{message_animation_length}
+							bind:step
+							bind:container={message_container}
+						/>
+					{/if}
+				{/each}
 			</div>
 		</div>
 
@@ -75,16 +65,19 @@
 			>
 		</div> -->
 	</div>
-	<div id="answer-options" class="w-full grid grid-cols-2 grid-rows-3 gap-2">
-		{#key sorted_options}
-			{#each sorted_options as [option, original_i], i}
-				{@const is_valid = question_correct_options.includes(original_i)}
+	<div id="answer-options" class="w-full grid grid-cols-1 grid-rows-1 gap-2 card p-2">
+		{#key question_options}
+			{#each question_options || [] as option, i}
+				{@const is_valid = question_correct_options?.includes(i)}
 				<button
 					class="btn variant-ghost-primary"
 					disabled={!is_valid}
 					on:click={() => {
 						if (is_valid) {
-							answers = [...answers, original_i];
+							answers = [...answers, i];
+
+							// scroll to bottom
+							message_container.scroll({ top: message_container.scrollHeight, behavior: "smooth" });
 						}
 					}}
 					in:scale={{
@@ -97,6 +90,10 @@
 			{/each}
 		{/key}
 	</div>
+	<div class="flex gap-2 items-center">
+		<progress value={$progress} />
+		<p class="whitespace-pre">{step + 1} / {questions.length}</p>
+	</div>
 </div>
 
 <style>
@@ -107,11 +104,10 @@
 
 	.all-container {
 		margin: 30px 20px;
-		max-height: 100%;
+		max-height: 90%;
 	}
 
 	.messages-container {
 		overflow-y: scroll;
-		max-height: 50%;
 	}
 </style>

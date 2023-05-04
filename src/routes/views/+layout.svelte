@@ -11,10 +11,10 @@
 	@media only screen and (min-width: 600px) {
 		.iphone-x {
 			position: relative;
-			margin: 40px auto;
+			margin: 25px auto;
 			width: calc(100vh * 9 / 16);
-			height: calc(100vh - calc(40px * 2));
-			height: calc(100svh - calc(40px * 2));
+			height: calc(100vh - calc(25px * 2));
+			height: calc(100svh - calc(25px * 2));
 			border-radius: 2.5rem;
 			box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111;
 			box-sizing: content-box;
@@ -57,6 +57,8 @@
 		/* force aspect-ratio of 9 / 16 */
 		width: calc(100vh * 8 / 16);
 		max-width: 100vw;
+		height: 100vh;
+		height: 100svh;
 		/* border: 1em solid black; */
 		/* border-radius: 1em; */
 		/* base font size on view height */

@@ -4,10 +4,12 @@
 	$: question_parts = question.split("\n");
 	export let options: string[];
 	export let correct: number[];
+	export let actor_pic: string | undefined;
 	export let step: number;
 
 	export let message_animation_delay: number;
 	export let message_animation_length: number;
+	export let container: HTMLElement;
 
 	// [option,original index]
 	let sorted_options: [string, number][] = [];
@@ -41,25 +43,34 @@
 	}
 </script>
 
-<div class="flex-1 flex gap-2 flex-col w-full">
+<div class="flex-1 flex gap-2 flex-col w-full" style:--ai-pic={actor_pic || ""}>
 	{#each question_parts as questionPart, part_index}
 		<div class="message-container">
-			<div class="profile-picture ai" class:hide={question_parts.length > 1 && part_index === 0} />
+			<div class="profile-picture ai" class:hide={part_index < question_parts.length - 1} />
 			<!--
+				
+				in:typewriter={{
+					speed: 5,
+					delay:
+						message_animation_delay +
+						(message_animation_delay + message_animation_length) * part_index
+				}}
+			-->
+			<div
+				class="w-full text-left message"
 				in:slide={{
 					delay:
 						message_animation_delay +
 						(message_animation_delay + message_animation_length) * part_index,
 					duration: message_animation_length
 				}}
-			-->
-			<div
-				class="w-full text-left message"
-				in:typewriter={{
-					speed: 5,
-					delay:
-						message_animation_delay +
-						(message_animation_delay + message_animation_length) * part_index
+				on:introstart={() => {
+					// scroll to bottom
+					container.scroll({ top: container.scrollHeight, behavior: "smooth" });
+				}}
+				on:introend={() => {
+					// scroll to bottom
+					container.scroll({ top: container.scrollHeight, behavior: "smooth" });
 				}}
 			>
 				{questionPart}
@@ -93,7 +104,7 @@
 		box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
 	}
 	.message:empty {
-		display: none;
+		opacity: 0;
 	}
 
 	.own {
@@ -110,9 +121,10 @@
 	}
 
 	.profile-picture {
+		--size: 2.25rem;
 		border-radius: 50%;
-		height: 25px;
-		width: 25px;
+		height: var(--size);
+		width: var(--size);
 		background-size: contain;
 	}
 	.profile-picture.hide {
@@ -120,7 +132,7 @@
 	}
 
 	.ai {
-		background-image: url("/sitra.png");
+		background-image: var(--ai-pic, url("/sitra.png"));
 	}
 
 	.user {

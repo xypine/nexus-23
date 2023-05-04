@@ -1,6 +1,18 @@
 [
     {
-        "question": "Welcome to the x lifestyle test! Today we will be testing your envireonmental footprint, and after that I will provide you with a summary of your score and some personalized tips on improving it!\nAre you ready to calculate your personal emissions?",
+        "question": "This is a demo. To keep things simple, answers are prefilled.\nIn a complete product, the user would be able to answer the questions themselves.",
+        "options": [
+            "Grrr..",
+            "Ok!",
+            "I want to answer myself!"
+        ],
+        "correct": [
+            1
+        ],
+        "actor_pic": "url(/dev.webp)"
+    },
+    {
+        "question": "Welcome to the Sitra lifestyle test (EVE.?)!\nToday we will be testing your environmental footprint, and after that I will provide you with a summary of your score and some personalized tips on improving it!\nAre you ready to calculate your personal emissions?",
         "options": [
             "Let's go!"
         ],
@@ -20,7 +32,7 @@
         ]
     },
     {
-        "question": "That's great, but it could be better. How many kilometers per week do you travel by public transport?",
+        "question": "That's great, but it could be better.\nHow many kilometers per week do you travel by public transport?",
         "options": [
             "I don't use public transport.",
             "less than 50km / week",
@@ -82,7 +94,7 @@
         ]
     },
     {
-        "question": "Wow! A real environmental activist, I see. How often do you have other animal products (milk based products, eggs etc.) as a part of your meal?",
+        "question": "Wow!\nA real environmental activist, I see.\nHow often do you have other animal products (milk based products, eggs etc.) as a part of your meal?",
         "options": [
             "I don't eat animal products",
             "1-2 times a week",
