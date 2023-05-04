@@ -1,0 +1,105 @@
+[
+    {
+        "question": "Welcome to the x lifestyle test! Today we will be testing your envireonmental footprint, and after that I will provide you with a summary of your score and some personalized tips on improving it!\nAre you ready to calculate your personal emissions?",
+        "options": [
+            "Let's go!"
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "Great! Let's start with a few questions regarding your lifestyle.\nHow much time per week do you spend having a shower?",
+        "options": [
+            "about 30 minutes",
+            "about 60 minutes",
+            "about 120 minutes"
+        ],
+        "correct": [
+            1
+        ]
+    },
+    {
+        "question": "That's great, but it could be better. How many kilometers per week do you travel by public transport?",
+        "options": [
+            "I don't use public transport.",
+            "less than 50km / week",
+            "50-200km / week",
+            "more than 200km / week"
+        ],
+        "correct": [
+            2
+        ]
+    },
+    {
+        "question": "A frequent customer of HSL, I see.. How many kilometers per week do you typically drive?",
+        "options": [
+            "None!",
+            "less than 50km / week",
+            "50-200km / week",
+            "more than 200km / week"
+        ],
+        "correct": [
+            1
+        ]
+    },
+    {
+        "question": "Interesting. Let's move on to some (more interesting) questions regarding your consumption of different commodities.\nHow often do you purchase new clothes?",
+        "options": [
+            "Once a week",
+            "Once a month",
+            "Once every six months",
+            "Once a year",
+            "Less than once a year"
+        ],
+        "correct": [
+            2
+        ]
+    },
+    {
+        "question": "Hmm.. And how many of those do you buy second-hand?",
+        "options": [
+            "I don't/rarely buy second-hand clothes",
+            "25-50%",
+            "50-75%",
+            "75-99%",
+            "All of them!"
+        ],
+        "correct": [
+            4
+        ]
+    },
+    {
+        "question": "Impressive! How often do you have red meat as a part of your meal?",
+        "options": [
+            "I don't eat red meat",
+            "1-2 times a week",
+            "3-5 times a week",
+            "6+ times a week"
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "Wow! A real environmental activist, I see. How often do you have other animal products (milk based products, eggs etc.) as a part of your meal?",
+        "options": [
+            "I don't eat animal products",
+            "1-2 times a week",
+            "3-5 times a week",
+            "6+ times a week"
+        ],
+        "correct": [
+            2
+        ]
+    },
+    {
+        "question": "Well, that could be better, but it's certainly not the worst I've seen 😅. Thank you for answering my questions!\nI will now show you your score, and after that you can ask me for some concrete challenges which you can do to improve your score!",
+        "options": [
+            "Continue"
+        ],
+        "correct": [
+            0
+        ]
+    }
+]

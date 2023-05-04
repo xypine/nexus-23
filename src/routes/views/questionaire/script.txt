@@ -1,0 +1,55 @@
+Welcome to the x lifestyle test! Today we will be testing your envireonmental footprint, and after that I will provide you with a summary of your score and some personalized tips on improving it!
+
+Are you ready to calculate your personal emissions?
+- Yes! (c)
+
+Great! Let's start with a few questions regarding your lifestyle. 
+
+How much time per week do you spend having a shower?
+- about 30 minutes
+- about 60 minutes
+120
+
+That's great, but it could be better. How many kilometers per week do you travel by public transport?
+a) I dont use public transport
+b) less than 50km
+c) 50-200km
+d) more than 200km
+
+A frequent customer of HSL, I see.. How many kilometers per week do you typically drive?
+a) None!
+b) less than 50km
+c) 50-200km
+d) more than 200km
+
+Interesting. Let's move on to some (more interesting) questions regarding your consumption of different commodities.
+
+How often do you purchase new clothes?
+a) Once a week
+b) Once a month
+c) Once every six months
+d) Once a year
+e) Less than once a year
+
+Hmm.. And how many of those do you buy second-hand?
+a) I don't buy second-hand clothes, only new ones.
+b) Less than 25%
+c) 25-50%
+d) 50-75%
+e) 75-99%
+f) All of them!
+
+Impressive! How often do you have red meat as a part of your meal?
+a) I don't eat red meat
+b) 1-2 times a week
+c) 3-5 times a week
+d) 6+ times a week
+
+Wow! A real environmental activist, I see. How often do you have other animal products (milk based products, eggs etc.) as a part of your meal?
+a) I don't eat animal products
+b) 1-2 times a week
+c) 3-5 times a week
+d) 6+ times a week
+
+Well, that could be better, but it's not the worst I've seen 😅. Thank you for answering my questions! I will now calculate your score, and after that you can ask me for some concrete challenges which you can use to make your score better!
+- Continue
