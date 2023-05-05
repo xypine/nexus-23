@@ -4,7 +4,7 @@
 	<div class="space-y-10 text-center">
 		<h2 class="font-bold">Welcome to EVE.</h2>
 		<div class="flex justify-center space-x-2">
-			<a class="btn variant-filled" href="views/questionaire"> Start the questionaire demo </a>
+			<a class="btn variant-filled" href="view/questionaire"> Start the questionaire demo </a>
 		</div>
 	</div>
 </div>

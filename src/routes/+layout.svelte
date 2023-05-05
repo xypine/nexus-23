@@ -9,4 +9,8 @@
 	import { AppShell, AppBar } from "@skeletonlabs/skeleton";
 </script>
 
+<svelte:head>
+	<title>EVE.</title>
+</svelte:head>
+
 <slot />

@@ -1,6 +1,9 @@
 <script lang="ts">
-	import questions from "./questions.json";
-	$: questions_reversed = [...questions].reverse() as Question[];
+	export let questions: Question[];
+	export let questionnaire_name = "Questionnaire";
+	export let show_progress = true;
+	export let result_link = "/view/result";
+	$: questions_reversed = [...questions].reverse();
 	let message_animation_delay = 1000;
 	let message_animation_length = 500;
 
@@ -17,7 +20,7 @@
 		duration: 400,
 		easing: cubicOut
 	});
-	$: progress.set(step + 1 / questions.length);
+	$: progress.set(step / (questions.length - 1));
 
 	type Question = {
 		question: string;
@@ -44,7 +47,12 @@
 
 <div class="all-container flex flex-col gap-4 mt-4 mb-2 flex-1">
 	<div class="flex flex-col header">
-		<h2>Questionnaire</h2>
+		<div class="flex justify-between">
+			<h2>{questionnaire_name}</h2>
+			<a class="btn variant-ghost-secondary" href="/">
+				<img src="/icons/home.svg" alt="home" />
+			</a>
+		</div>
 	</div>
 	<div class="messages-container flex-1 flex gap-2 flex-col" bind:this={message_container}>
 		<div class="messages-parent flex-1">
@@ -70,16 +78,18 @@
 			{#each question_options || [] as option, i}
 				{@const is_valid = question_correct_options?.includes(i)}
 				{#if step === questions.length - 1}
-					<button
-						class="btn variant-filled-primary"
-						on:click={() => {
-							// show next screen
-							goto("/views/result");
-						}}>{option}</button
+					<a
+						data-sveltekit-reload
+						class="btn variant-filled-primary whitespace-break-spaces"
+						href={result_link}
+						in:scale={{
+							delay: message_animation_delay + message_animation_length + i * 200,
+							duration: 100
+						}}>{option}</a
 					>
 				{:else}
 					<button
-						class="btn variant-ghost-primary"
+						class="btn variant-ghost-primary whitespace-break-spaces"
 						disabled={!is_valid}
 						on:click={() => {
 							if (is_valid) {
@@ -105,10 +115,12 @@
 			{/each}
 		{/key}
 	</div>
-	<div class="flex gap-2 items-center">
-		<progress value={$progress} />
-		<p class="whitespace-pre">{step + 1} / {questions.length}</p>
-	</div>
+	{#if show_progress}
+		<div class="flex gap-2 items-center">
+			<progress value={$progress} />
+			<p class="whitespace-pre">{step + 1} / {questions.length}</p>
+		</div>
+	{/if}
 </div>
 
 <style>

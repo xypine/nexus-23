@@ -1,0 +1,58 @@
+[
+    {
+        "question": "",
+        "options": [
+            "How can I improve my score?"
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "Let's see.. I'll analyze your answers and give you personalized feedback and concrete challenges you could complete to improve your ranking on the leaderboards!\nHow does that sound?",
+        "options": [
+            "That sounds awesome!"
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "Judging by your answers to the questionnaire, you seem to be doing better than the average person on EVE! You're currently in the top 20% of users, congratulations!",
+        "options": [
+            "🎉"
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "How about this challenge? \"Water is the best drink\" - Drink water instead of milk with your meals for 1 month. This will reduce your current carbon footprint by 2%! This is equivalent to 900 kilometers of driving.\nFor completing this challenge, you will receive 1500 points, which is enough to overtake Iida and Jukka on the leaderboards, finally! Do you accept the challenge?",
+        "options": [
+            "I am ready!",
+            "I like my milk too much! How about 2 weeks?",
+            "Actually, I'd like to hear another one."
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "",
+        "options": [
+            "I need a new pair of jeans. What clothing brands would fit my current objective?"
+        ],
+        "correct": [
+            0
+        ]
+    },
+    {
+        "question": "Let's see, you apparently liked your H&M ones from last time, but their mission doesn't seem sustainable enough for your portfolio.\nHow about these ones from DL1961? Their new manufacturing process uses just 40 liters for a pair of jeans, which is 98% less than the industry standard 5700 liters.\nhttps://www.dl1961.com/collections/women-view-all-fits/products/lela-slim-vintage-lt-seaglass",
+        "options": [
+            "Those look great, thank you!"
+        ],
+        "correct": [
+            0
+        ]
+    }
+]

@@ -19,7 +19,7 @@
 		sorted_options = sorted_options;
 	}
 
-	import { slide } from "svelte/transition";
+	import { fade, slide } from "svelte/transition";
 
 	function typewriter(node, { speed = 1, delay = 0 }) {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
@@ -46,7 +46,10 @@
 <div class="flex-1 flex gap-2 flex-col w-full" style:--ai-pic={actor_pic || ""}>
 	{#each question_parts as questionPart, part_index}
 		<div class="message-container">
-			<div class="profile-picture ai" class:hide={part_index < question_parts.length - 1} />
+			<div
+				class="profile-picture ai"
+				class:hide={part_index < question_parts.length - 1 || questionPart.length === 0}
+			/>
 			<!--
 				
 				in:typewriter={{
@@ -132,10 +135,10 @@
 	}
 
 	.ai {
-		background-image: var(--ai-pic, url("/sitra.png"));
+		background-image: var(--ai-pic, url("/eve.png"));
 	}
 
 	.user {
-		background-image: url("https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg");
+		background-image: url("/user.jpg");
 	}
 </style>
