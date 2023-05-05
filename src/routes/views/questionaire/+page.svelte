@@ -86,10 +86,12 @@
 								answers = [...answers, i];
 
 								// scroll to bottom
-								message_container.scroll({
-									top: message_container.scrollHeight,
-									behavior: "smooth"
-								});
+								if (message_container) {
+									message_container.scroll({
+										top: message_container.scrollHeight,
+										behavior: "smooth"
+									});
+								}
 							}
 						}}
 						in:scale={{
