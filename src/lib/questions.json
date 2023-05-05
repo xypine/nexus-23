@@ -1,6 +1,6 @@
 [
 	{
-		"question": "This is a demo. To keep things simple, answers are prefilled.\nIn a complete product, the user would be able to answer the questions themselves.",
+		"question": "This is a demo. To keep things simple, the answers are prefilled and there are less questions.\nIn a complete product, the user would be able to answer the questions themselves.",
 		"options": [
 			"Grrr..",
 			"Ok!",
@@ -9,7 +9,7 @@
 		"correct": [
 			1
 		],
-		"actor_pic": "url(/dev.webp)"
+		"actor_pic": "url(/dev_baked.svg)"
 	},
 	{
 		"question": "Welcome to the Environmental Vision and Education test EVE.!\nToday we will be testing your environmental footprint, and after that I will provide you with a summary of your score and some personalized tips on improving it!\nAre you ready to calculate your personal emissions?",
