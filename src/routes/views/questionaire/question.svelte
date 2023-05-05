@@ -66,11 +66,11 @@
 				}}
 				on:introstart={() => {
 					// scroll to bottom
-					container.scroll({ top: container.scrollHeight, behavior: "smooth" });
+					if (container) container.scroll({ top: container.scrollHeight, behavior: "smooth" });
 				}}
 				on:introend={() => {
 					// scroll to bottom
-					container.scroll({ top: container.scrollHeight, behavior: "smooth" });
+					if (container) container.scroll({ top: container.scrollHeight, behavior: "smooth" });
 				}}
 			>
 				{questionPart}
